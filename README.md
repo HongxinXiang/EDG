@@ -6,6 +6,8 @@
 
 ## News!
 
+**[2025/04/29]** 🔔️ Accepted in IJCAI 2025
+
 **[2025/01/17]** Repository installation completed.
 
 ## Environments
