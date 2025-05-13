@@ -1,31 +1,42 @@
-# EDG
+# EDG: Electron Density-enhanced Molecular Geometry Learning
 
-### Official PyTorch-based implementation of Paper "Electron Density-enhanced Molecular Geometry Learning"
+[![PyTorch](https://img.shields.io/badge/PyTorch-%23EE4C2C.svg?logo=PyTorch&logoColor=white)](https://pytorch.org/)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Paper](https://img.shields.io/badge/Paper-IJCAI%202025-blue)](TODO)
+
+Official PyTorch implementation of "Electron Density-enhanced Molecular Geometry Learning" (IJCAI 2025)
 
 
 
-## News!
+## 📑 Table of Contents
+- [✨ News](#-news)
+- [⚙️ Environments](#️-environments)
+- [🚀 Pipeline](#-pipeline)
+  - [Stage 1: ED Representation Learning with ImageED](#stage-1-ed-representation-learning-with-imageed)
+  - [Stage 2: Pre-training of ED-aware Teacher](#stage-2-pre-training-of-ed-aware-teacher)
+  - [Stage 3: ED-enhanced Molecular Geometry Learning](#stage-3-ed-enhanced-molecular-geometry-learning-on-downstream-tasks)
+- [📊 Benchmarks](#-benchmarks)
+- [📜 Citation](#-citation)
 
-**[2025/04/29]** 🔔️ Accepted in IJCAI 2025
+## ✨ News
+- **[2025/04/29]** 🎉 Paper accepted to **IJCAI 2025**!
+- **[2025/01/17]** 🛠️ Repository setup completed.
 
-**[2025/01/17]** Repository installation completed.
-
-## Environments
+## ⚙️ Environments
 
 #### 1. GPU environment
 
-CUDA 11.6
+- **CUDA**: 11.6
+- **OS**: Ubuntu 18.04
 
-Ubuntu 18.04
 
-
-#### 2. create conda environment
+#### 2. Conda Environment Setup
 ```bash
-# create conda env
+# Create conda environment
 conda create -n EDG python=3.9
 conda activate EDG
 
-# install environment
+# Install dependencies
 pip install rdkit
 pip install torch==1.13.1+cu116 torchvision==0.14.1+cu116 torchaudio==0.13.1 --extra-index-url https://download.pytorch.org/whl/cu116 -i https://pypi.tuna.tsinghua.edu.cn/simple
 
@@ -40,9 +51,9 @@ pip install dgl-cu116
 pip install ogb
 ```
 
+## 🚀 Pipeline
 
-
-## Stage 1: ED Representation Learning with ImageED
+### Stage 1: ED Representation Learning with ImageED
 
 The pre-trained ImageED can be accessed in following table:
 
@@ -75,15 +86,13 @@ python ImageED/pretrain_ImageED.py \
 
 
 
-## Stage 2: Pre-training of ED-aware Teacher
+### Stage 2: Pre-training of ED-aware Teacher
 
 In order to improve the efficiency of pre-training ED-aware teacher, we provide 2 million ED features extracted by ImageED:
 
 | Name        | Download link                                                | Description                                                  |
 | ----------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| ED features | [200w_ED_feats.pkl](https://1drv.ms/u/c/53030532e7d1aed6/EZclQc5cZYtMuoA_Dfy_N2wBkO9tKLETmRpP3f5NxqRwNw?e=0du0o7) | 2 million ED features extracted by ImageED. The pkl file is a dictionary: {"feats": ndarray, "ED_index_list": list} |
-
-
+| ED features | [📥 200w_ED_feats.pkl](https://1drv.ms/u/c/53030532e7d1aed6/EZclQc5cZYtMuoA_Dfy_N2wBkO9tKLETmRpP3f5NxqRwNw?e=0du0o7) | 2 million ED features extracted by ImageED. The pkl file is a dictionary: {"feats": ndarray, "ED_index_list": list} |
 
 After downloading the `pkl` data, run the following command to train the ED-aware teacher:
 
@@ -111,14 +120,14 @@ python ED_teacher/pretrain_ED_teachers.py \
 
 We provide the weight files of the pre-trained ED-aware teacher as follows:
 
-| Name             | Download link                                                | Description                                                  |
-| ---------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| ED-aware Teacher | [ED-aware Teacher](https://1drv.ms/u/c/53030532e7d1aed6/EdbT3drKAMlKv1QAHBw03WIBz03F_40TczOavhtqg4_FKg?e=RGzAWc) | The teacher trained for more than 280k steps on 2 million molecules: {"ED_teacher": `params`, "EDPredictor": `params`} |
+| Name             | Download link                                                                                               | Description                                                  |
+| ---------------- |-------------------------------------------------------------------------------------------------------------| ------------------------------------------------------------ |
+| ED-aware Teacher | [📥 Download](https://1drv.ms/u/c/53030532e7d1aed6/EdbT3drKAMlKv1QAHBw03WIBz03F_40TczOavhtqg4_FKg?e=RGzAWc) | The teacher trained for more than 280k steps on 2 million molecules: {"ED_teacher": `params`, "EDPredictor": `params`} |
 
 
 
 
-## Stage 3: ED-enhanced Molecular Geometry Learning on Downstream Tasks
+### Stage 3: ED-enhanced Molecular Geometry Learning on Downstream Tasks
 
 All downstream task data is publicly accessible:
 
@@ -164,3 +173,23 @@ python EDG/finetune_QM9_EDG.py \
 	--use_ED \
 	--weight_ED $weight_ED
 ```
+
+
+
+## 📜 Citation
+
+If our paper or code is helpful to you, please do not hesitate to point a star for our repository and cite the following content.
+
+```bib
+@inproceedings{ijcai2025p5429,
+  title     = {Electron Density-enhanced Molecular Geometry Learning},
+  author    = {Xiang, Hongxin and Xia, Jun and Jin, Xin and Du, Wenjie and Zeng, Li and Zeng, Xiangxiang},
+  booktitle = {Proceedings of the Thirty-Fourth International Joint Conference on
+               Artificial Intelligence, {IJCAI-25}},
+  publisher = {International Joint Conferences on Artificial Intelligence Organization},
+  year      = {2025},
+  month     = {8},
+  note      = {Main Track},
+}
+```
+
