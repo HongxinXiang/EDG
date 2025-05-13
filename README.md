@@ -92,7 +92,7 @@ In order to improve the efficiency of pre-training ED-aware teacher, we provide 
 
 | Name        | Download link                                                | Description                                                  |
 | ----------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| ED features | [📥 200w_ED_feats.pkl](https://1drv.ms/u/c/53030532e7d1aed6/EZclQc5cZYtMuoA_Dfy_N2wBkO9tKLETmRpP3f5NxqRwNw?e=0du0o7) | 2 million ED features extracted by ImageED. The pkl file is a dictionary: {"feats": ndarray, "ED_index_list": list} |
+| ED features | [📥200w_ED_feats.pkl](https://1drv.ms/u/c/53030532e7d1aed6/EZclQc5cZYtMuoA_Dfy_N2wBkO9tKLETmRpP3f5NxqRwNw?e=0du0o7) | 2 million ED features extracted by ImageED. The pkl file is a dictionary: {"feats": ndarray, "ED_index_list": list} |
 
 After downloading the `pkl` data, run the following command to train the ED-aware teacher:
 
@@ -120,9 +120,9 @@ python ED_teacher/pretrain_ED_teachers.py \
 
 We provide the weight files of the pre-trained ED-aware teacher as follows:
 
-| Name             | Download link                                                                                               | Description                                                  |
-| ---------------- |-------------------------------------------------------------------------------------------------------------| ------------------------------------------------------------ |
-| ED-aware Teacher | [📥 Download](https://1drv.ms/u/c/53030532e7d1aed6/EdbT3drKAMlKv1QAHBw03WIBz03F_40TczOavhtqg4_FKg?e=RGzAWc) | The teacher trained for more than 280k steps on 2 million molecules: {"ED_teacher": `params`, "EDPredictor": `params`} |
+| Name             | Download link                                                                                              | Description                                                  |
+| ---------------- |------------------------------------------------------------------------------------------------------------| ------------------------------------------------------------ |
+| ED-aware Teacher | [📥Download](https://1drv.ms/u/c/53030532e7d1aed6/EdbT3drKAMlKv1QAHBw03WIBz03F_40TczOavhtqg4_FKg?e=RGzAWc) | The teacher trained for more than 280k steps on 2 million molecules: {"ED_teacher": `params`, "EDPredictor": `params`} |
 
 
 
