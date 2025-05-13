@@ -1,10 +1,14 @@
-# EDG: Electron Density-enhanced Molecular Geometry Learning
+# 🐳 EDG: Electron Density-enhanced Molecular Geometry Learning
 
 [![PyTorch](https://img.shields.io/badge/PyTorch-%23EE4C2C.svg?logo=PyTorch&logoColor=white)](https://pytorch.org/)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Paper](https://img.shields.io/badge/Paper-IJCAI%202025-blue)](TODO)
 
 Official PyTorch implementation of "Electron Density-enhanced Molecular Geometry Learning" (IJCAI 2025)
+
+- 📄 [**Paper**](TODO) – Main paper of the EDG project.
+- 📎 [**Appendix (PDF)**](https://github.com/HongxinXiang/EDG/blob/master/docs/EDG-Appendix.pdf) – Supplementary materials and technical details.
+
 
 <p align="center">
   <img src="/docs/images/overview.png" width="800">
