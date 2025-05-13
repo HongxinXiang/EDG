@@ -9,13 +9,12 @@ Official PyTorch implementation of "Electron Density-enhanced Molecular Geometry
 - 📄 [**Paper**](TODO) – Main paper of the EDG project.
 - 📎 [**Appendix (PDF)**](https://github.com/HongxinXiang/EDG/blob/master/docs/EDG-Appendix.pdf) – Supplementary materials and technical details.
 
+---
 
-<p align="center">
-  <img src="/docs/images/overview.png" width="800">
-</p>
 
 ## 📑 Table of Contents
 - [✨ News](#-news)
+- [🧪 Summary](#-summary)
 - [⚙️ Environments](#️-environments)
 - [🚀 Pipeline](#-pipeline)
   - [Stage 1: ED Representation Learning with ImageED](#stage-1-ed-representation-learning-with-imageed)
@@ -27,6 +26,24 @@ Official PyTorch implementation of "Electron Density-enhanced Molecular Geometry
 ## ✨ News
 - **[2025/04/29]** 🎉 Paper accepted to **IJCAI 2025**!
 - **[2025/01/17]** 🛠️ Repository setup completed.
+
+
+## 🧪 Summary
+Electron density (ED), which describes the spatial distribution probability of electrons, plays a vital role in modeling energy and force distributions in molecular force fields (MFF). While existing machine learning force fields (MLFFs) typically enhance molecular geometry representations using atomic-level information, they often overlook the rich physical signals encoded in the electron cloud.
+
+In this work, we introduce **EDG** — an efficient **E**lectron **D**ensity-enhanced molecular **G**eometry learning framework that leverages rendered ED images to enrich geometric representations for MLFFs.
+
+We make three key contributions:
+- **Image-based ED Representation**: We construct a large-scale dataset of 2 million 6-view RGB-D ED images.
+- **ImageED**: A dedicated vision model trained to learn physical insights from ED images.
+- **Cross-modal Knowledge Distillation**: An ED-aware teacher-student framework that transfers ED knowledge to geometry-based models.
+
+Our method is model-agnostic and can be seamlessly integrated into existing MLFF architectures (e.g., SchNet, EGNN, SphereNet, ViSNet).  
+Extensive experiments on QM9 and rMD17 demonstrate that EDG significantly improves geometry learning performance, with up to **33.7%** average gain.
+
+<p align="center">
+  <img src="/docs/images/overview.png" width="800">
+</p>
 
 ## ⚙️ Environments
 
