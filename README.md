@@ -6,7 +6,9 @@
 
 Official PyTorch implementation of "Electron Density-enhanced Molecular Geometry Learning" (IJCAI 2025)
 
-
+<p align="center">
+  <img src="/docs/images/overview.png" width="800">
+</p>
 
 ## 📑 Table of Contents
 - [✨ News](#-news)
