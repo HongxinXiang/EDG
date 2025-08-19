@@ -1,8 +1,7 @@
 # 🐳 EDG: Electron Density-enhanced Molecular Geometry Learning
 
 [![PyTorch](https://img.shields.io/badge/PyTorch-%23EE4C2C.svg?logo=PyTorch&logoColor=white)](https://pytorch.org/)
-[![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
-[![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/HongxinXiang/EDG/blob/master/LICENSE)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 <a href="" target='_blank'><img src="https://visitor-badge.laobi.icu/badge?page_id=HongxinXiang.EDG-X&left_color=gray&right_color=orange"></a>
 [![Paper](https://img.shields.io/badge/Paper-IJCAI%202025-blue)](TODO)
 
