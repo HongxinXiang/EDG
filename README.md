@@ -166,11 +166,13 @@ All downstream task data is publicly accessible:
 
 To use EDG to enhance the learning of a geometry model, use the following command:
 
+- QM9
+
 ```bash
 model_3d=EGNN  # geometry models
 dataroot=../datasets
 dataset=QM9
-task=alpha
+task=alpha  # mu,alpha,homo,lumo,gap,r2,zpve,u0,u298,h298,g298,cv
 img_feat_path=teacher_features.npz  # structural image features extracted by ED-aware Teacher
 pretrained_pth=ED-aware-Teacher.pth  # path to checkpoint of ED-aware teacher
 weight_ED=1.0
@@ -197,6 +199,43 @@ python EDG/finetune_QM9_EDG.py \
 	--use_ED \
 	--weight_ED $weight_ED
 ```
+
+- rMD17
+
+```bash
+model_3d=SchNet  # geometry models
+dataroot=../datasets
+dataset=rMD17
+task=ethanol  # ethanol,azobenzene,naphthalene,salicylic,toluene,aspirin,uracil,paracetamol,malonaldehyde,benzene
+img_feat_path=teacher_features.npz  # structural image features extracted by ED-aware Teacher
+pretrained_pth=ED-aware-Teacher.pth  # path to checkpoint of ED-aware teacher
+weight_ED=1.0
+
+python EDG/finetune_rMD17_EDG.py \
+	--verbose \
+	--model_3d $model_3d \
+	--dataroot ../datasets \
+	--dataset $dataset \
+	--task $task \
+	--rMD17_split_id 01 \
+	--seed 42 \
+	--epochs 1000 \
+	--batch_size 128 \
+	--lr 5e-4 \
+	--emb_dim 128 \
+	--lr_scheduler CosineAnnealingLR \
+	--no_eval_train \
+	--print_every_epoch 1 \
+	--energy_force_with_normalization \
+	--img_feat_path $img_feat_path \
+	--num_workers 8 \
+	--pretrained_pth $pretrained_pth \
+    --output_model_dir ./experiments/$dataset/$task \
+	--use_ED \
+	--weight_ED $weight_ED
+```
+
+
 
 
 
