@@ -3,11 +3,12 @@
 [![PyTorch](https://img.shields.io/badge/PyTorch-%23EE4C2C.svg?logo=PyTorch&logoColor=white)](https://pytorch.org/)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 <a href="" target='_blank'><img src="https://visitor-badge.laobi.icu/badge?page_id=HongxinXiang.EDG-X&left_color=gray&right_color=orange"></a>
-[![Paper](https://img.shields.io/badge/Paper-IJCAI%202025-blue)](TODO)
+[![Paper](https://img.shields.io/badge/Paper-IJCAI%202025-blue)](https://www.ijcai.org/proceedings/2025/872)
 
 Official PyTorch implementation of "Electron Density-enhanced Molecular Geometry Learning" (IJCAI 2025)
 
-- 📄 [**Paper**](TODO) – Main paper of the EDG project.
+- 🏠 [**Paper (Main Page)**](https://www.ijcai.org/proceedings/2025/872) – Main page of the EDG project.
+- 📄 [**Paper (PDF)**](https://www.ijcai.org/proceedings/2025/0872.pdf) – Main paper.
 - 📎 [**Appendix (PDF)**](https://github.com/HongxinXiang/EDG/blob/master/docs/EDG-Appendix.pdf) – Supplementary materials and technical details.
 
 ---
@@ -21,10 +22,11 @@ Official PyTorch implementation of "Electron Density-enhanced Molecular Geometry
   - [Stage 1: ED Representation Learning with ImageED](#stage-1-ed-representation-learning-with-imageed)
   - [Stage 2: Pre-training of ED-aware Teacher](#stage-2-pre-training-of-ed-aware-teacher)
   - [Stage 3: ED-enhanced Molecular Geometry Learning](#stage-3-ed-enhanced-molecular-geometry-learning-on-downstream-tasks)
-- [📊 Benchmarks](#-benchmarks)
+<!-- - [📊 Benchmarks](#-benchmarks)-->
 - [📜 Citation](#-citation)
 
 ## ✨ News
+- **[2025/09/19]** 🎉 Paper online!
 - **[2025/04/29]** 🎉 Paper accepted to **IJCAI 2025**!
 - **[2025/01/17]** 🛠️ Repository setup completed.
 
@@ -244,15 +246,19 @@ python EDG/finetune_rMD17_EDG.py \
 If our paper or code is helpful to you, please do not hesitate to point a star for our repository and cite the following content.
 
 ```bib
-@inproceedings{ijcai2025p5429,
+@inproceedings{ijcai2025p872,
   title     = {Electron Density-enhanced Molecular Geometry Learning},
   author    = {Xiang, Hongxin and Xia, Jun and Jin, Xin and Du, Wenjie and Zeng, Li and Zeng, Xiangxiang},
   booktitle = {Proceedings of the Thirty-Fourth International Joint Conference on
                Artificial Intelligence, {IJCAI-25}},
   publisher = {International Joint Conferences on Artificial Intelligence Organization},
+  editor    = {James Kwok},
+  pages     = {7840--7848},
   year      = {2025},
   month     = {8},
   note      = {Main Track},
+  doi       = {10.24963/ijcai.2025/872},
+  url       = {https://doi.org/10.24963/ijcai.2025/872},
 }
 ```
 
