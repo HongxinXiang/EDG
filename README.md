@@ -237,8 +237,7 @@ python EDG/finetune_rMD17_EDG.py \
 	--weight_ED $weight_ED
 ```
 
-
-
+To reproduce the **EDG version of VisNet**, please refer to [this link](./EDG-for-VisNet/README.md).
 
 
 ## 📜 Citation
