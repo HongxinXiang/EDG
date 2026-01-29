@@ -19,11 +19,11 @@ class LNNP(LightningModule):
         else:
             self.model = create_model(self.hparams, prior_model, mean, std)
 
-        # 蒸馏模型
+        # distillation model
         image_dim = 512
         num_tasks = 1 if len(self.model.std.shape) == 0 else len(self.model.std.shape)
         self.alignMapper = get_classifier("arch3", hparams.embedding_dimension, image_dim)  # graph->image
-        # 从预训练模型中加载
+        # load checkpoint
         self.EDPredictor = Predictor(in_features=image_dim, out_features=768)
         if hparams.pretrained_pth is not None:
             flag, resume_desc = load_checkpoint(hparams.pretrained_pth, self.EDPredictor)
@@ -102,7 +102,7 @@ class LNNP(LightningModule):
 
             mol_repr, pred, deriv = self(batch, ret_mol_repr=ret_mol_repr)
 
-            # 蒸馏的代码加在这里
+            # distillation code
             device = batch.y.device
             ED_loss = torch.zeros(1).to(device)
             if stage == "train" and ret_mol_repr:
