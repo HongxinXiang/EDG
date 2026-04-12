@@ -1,4 +1,5 @@
 import argparse
+from email.policy import default
 
 parser = argparse.ArgumentParser()
 
@@ -399,8 +400,21 @@ parser.add_argument('--FF', action='store_true', help='only for rdkit')
 # distillation params
 parser.add_argument("--img_feat_path", type=str, default=None, help="用于蒸馏的图像数据")
 parser.add_argument('--pretrained_pth', type=str, default=None, help='蒸馏的模型')
+parser.add_argument('--use_kd', action='store_true', default=False, help='KD loss')
 parser.add_argument('--use_ED', action='store_true', default=False, help='whether use electronic density')
+parser.add_argument('--use_EK', action='store_true', default=False, help='electronics-related knowledge')
+parser.add_argument('--use_evaluator', action='store_true', default=False, help='whether use evaluator')
+parser.add_argument('--evaluator_name', type=str, default="topn_batch", choices=["topn_batch", "mean_std"], help='name of evaluator, topn 是选择一个 batch 中的 topn 来蒸馏。mean_std 根据是根据均值和方差来的')
+# topn_batch
+parser.add_argument("--topn_ratio", type=float, default=1, help="use_evaluator，选择top多少比例的样本来计算损失")
+# mean_std
+parser.add_argument("--alpha_std_batch", type=float, default=0, help="一个 batch 中方差的偏移量")
+parser.add_argument("--alpha_std_all", type=float, default=0, help="所有样本中方差的偏移量")
+parser.add_argument("--beta_batch", type=float, default=0.5, help="")
+# ED, EK, KD 的权重
 parser.add_argument("--weight_ED", type=float, default=1, help="计算损失时的权重")
+parser.add_argument("--weight_EK", type=float, default=1, help="计算损失时的权重")
+parser.add_argument("--weight_kd", type=float, default=1, help="计算损失时的权重")
 
 args = parser.parse_args()
 print("arguments\t", args)

@@ -5,6 +5,16 @@ __pycache__/
 *$py.class
 *.pth
 
+# Data files
+*.pt
+*.npz
+*.csv
+*.sdf
+*.gz
+*.swp
+downstream/datasets/*/processed/
+downstream/datasets/*/raw/
+
 # Project file
 logs/
 application/

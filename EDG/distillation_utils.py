@@ -47,15 +47,16 @@ class Predictor(nn.Module):
         return logit
 
 
-def load_checkpoint(pretrained_pth, EDPredictor,
+def load_checkpoint(pretrained_pth, EDPredictor, EKPredictor, EDEvaluator, EKEvaluator,
                     optimizer=None, lr_scheduler=None, logger=None):
     log = logger.info if logger is not None else print
     flag = False
     resume_desc = None
     if os.path.isfile(pretrained_pth):
-        pretrained_model = torch.load(pretrained_pth)
+        pretrained_model = torch.load(pretrained_pth, weights_only=False)
         resume_desc = pretrained_model["desc"]
-        model_list = [("EDPredictor", EDPredictor)]
+        model_list = [("EDPredictor", EDPredictor), ("EKPredictor", EKPredictor),
+                      ("EDEvaluator", EDEvaluator), ("EKEvaluator", EKEvaluator)]
         if optimizer is not None:
             model_list.append(("optimizer", optimizer, "optimizer"))
         if lr_scheduler is not None:
